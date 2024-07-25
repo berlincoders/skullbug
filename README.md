@@ -46,8 +46,7 @@ To set up the project locally, you will need:
 
 Once the application is running, you can access it at `http://localhost:8080`. The API endpoints and other features will be documented as development progresses.
 
-## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
 
 
