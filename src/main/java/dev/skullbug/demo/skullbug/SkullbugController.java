@@ -1,23 +1,39 @@
 package dev.skullbug.demo.skullbug;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
-import java.util.List;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 
 @RestController
 public class SkullbugController {
 
 
-    private List<Bug> db = List.of(new Bug("1","bug1"));
+    private Map<String, Bug> db =new HashMap<>() {{
+
+        put("1", new Bug("1","Bug1"));
+
+    }};
+
 
     @GetMapping ("/")
     public String hello(){
         return "Hello Skullbug";
     }
     @GetMapping ("/bugs")
-    public List<Bug> get(){
-        return db;
+    public Collection<Bug> get(){
+        return db.values();
+    }
+    @GetMapping ("/bugs/{id}")
+    public Bug get(@PathVariable String id){
+        Bug bug = db.get(id);
+        if (bug == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        return bug;
     }
 }
