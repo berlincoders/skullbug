@@ -13,6 +13,7 @@
 - **H2 Database**: An in-memory database for development and testing.
 - **Validation**
 - **Security**
+- **Thymeleaf**
 
 ## Introduction
 
