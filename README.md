@@ -11,6 +11,7 @@
 - **Spring Web**: For building web applications, including RESTful services.
 - **Spring Data JDBC**: For database access using JDBC.
 - **H2 Database**: An in-memory database for development and testing.
+- **validation**
 
 ## Introduction
 
