@@ -3,27 +3,31 @@ package dev.skullbug.demo.skullbug;
 public class Bug {
 
     private String id;
-    private String Name;
+    private String name;
 
     // Empty Constructor
-
     public Bug() {
     }
+
     // Generate Constructor
     public Bug(String id, String name) {
         this.id = id;
-        Name = name;
+        this.name = name;
     }
+
     // Add getters and setters
     public String getName() {
-        return Name;
+        return name;
     }
+
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
+
     public String getId() {
         return id;
     }
+
     public void setId(String id) {
         this.id = id;
     }
