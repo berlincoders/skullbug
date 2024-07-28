@@ -9,11 +9,11 @@
 ## Dependencies
 
 - **Spring Web**: For building web applications, including RESTful services.
-- **Spring Data JDBC**: For database access using JDBC.
-- **H2 Database**: An in-memory database for development and testing.
+- **Spring Data JPA**: Data JPA is a higher-level abstraction built on top of JPA (Java Persistence API) 
+- **PostgreSQL**
 - **Validation**
 - **Security**
-- **Thymeleaf**
+- **Thymeleaf** 
 
 ## Introduction
 
