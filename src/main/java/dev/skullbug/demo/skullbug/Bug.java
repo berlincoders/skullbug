@@ -1,8 +1,11 @@
 package dev.skullbug.demo.skullbug;
 
+import jakarta.validation.constraints.NotEmpty;
+
 public class Bug {
 
     private String id;
+    @NotEmpty
     private String name;
 
     // Empty Constructor

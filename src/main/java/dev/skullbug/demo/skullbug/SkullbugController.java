@@ -1,5 +1,6 @@
 package dev.skullbug.demo.skullbug;
 
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -41,11 +42,11 @@ public class SkullbugController {
     }
 
     @PostMapping("/bugs")
-    public ResponseEntity<Bug> create(@RequestBody Bug bug) {
+    public ResponseEntity<Bug> create(@RequestBody @Valid Bug bug) {
         bug.setId(UUID.randomUUID().toString());
         db.put(bug.getId(), bug);
         return new ResponseEntity<>(bug, HttpStatus.CREATED);
     }
-   
+
 }
 
