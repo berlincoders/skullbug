@@ -12,6 +12,8 @@
 - **Spring Data JDBC**: For database access using JDBC.
 - **H2 Database**: An in-memory database for development and testing.
 - **Validation**
+- **Security**
+- **Thymeleaf**
 
 ## Introduction
 
