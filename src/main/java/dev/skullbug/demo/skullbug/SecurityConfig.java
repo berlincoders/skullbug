@@ -1,4 +1,4 @@
-package dev.skullbug.demo.skullbug.config;
+package dev.skullbug.demo.skullbug.config; // Ensure the package is correct
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,11 +16,11 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .requestMatchers("/users/register", "/users/success").permitAll() // Allow access to these pages without authentication
+                .requestMatchers("/", "/users/register", "/users/success", "/css/**", "/js/**").permitAll() // Allow access to these pages without authentication
                 .anyRequest().authenticated() // Require authentication for all other requests
                 .and()
                 .formLogin()
-                .loginPage("/login") // Custom login page
+                .loginPage("/users/login") // Custom login page
                 .permitAll()
                 .and()
                 .logout()
@@ -30,6 +30,6 @@ public class SecurityConfig {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+        return new BCryptPasswordEncoder(); // Define a bean of PasswordEncoder
     }
 }
