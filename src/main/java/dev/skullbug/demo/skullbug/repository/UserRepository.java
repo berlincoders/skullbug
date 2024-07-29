@@ -1,6 +1,6 @@
 package dev.skullbug.demo.skullbug.repository;
 
-import dev.skullbug.demo.skullbug.User;
+import dev.skullbug.demo.skullbug.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

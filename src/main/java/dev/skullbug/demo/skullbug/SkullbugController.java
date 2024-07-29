@@ -1,5 +1,6 @@
 package dev.skullbug.demo.skullbug;
 
+import dev.skullbug.demo.skullbug.model.Bug;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,36 +1,52 @@
 package dev.skullbug.demo.skullbug.controller;
 
-import dev.skullbug.demo.skullbug.User;
+import dev.skullbug.demo.skullbug.model.User;
 import dev.skullbug.demo.skullbug.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
-@RestController
-@RequestMapping("/api/users")
+@Controller
 public class UserController {
 
-    private final UserService userService;
-
     @Autowired
-    public UserController(UserService userService) {
-        this.userService = userService;
+    private UserService userService;
+
+    // Displays the registration form
+    @GetMapping("/users/register")
+    public String showRegistrationForm() {
+        return "register"; // This should correspond to src/main/resources/templates/register.html
     }
 
-    @PostMapping("/register")
-    public ResponseEntity<User> registerUser(@RequestBody User user) {
-        User savedUser = userService.save(user);
-        return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
+    // Handles user registration
+    @PostMapping("/users/register")
+    public String registerUser(@RequestParam String username, @RequestParam String password) {
+        // Create a new User object and set its properties
+        User user = new User();
+        user.setUsername(username);
+        user.setPassword(userService.encodePassword(password)); // Ensure the password is encoded
+
+        // Save the user to the database
+        userService.saveUser(user);
+
+        // Redirect to a success page or login page
+        return "redirect:/users/success";
     }
 
-    @GetMapping("/{username}")
-    public ResponseEntity<User> getUserByUsername(@PathVariable String username) {
-        User user = userService.findByUsername(username);
-        if (user != null) {
-            return new ResponseEntity<>(user, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+    // Displays a success page after registration
+    @GetMapping("/users/success")
+    public String registrationSuccess() {
+        return "success"; // This should correspond to src/main/resources/templates/success.html
+    }
+
+    // Optionally, handle errors and display appropriate messages
+    @GetMapping("/users/error")
+    public ModelAndView handleError() {
+        ModelAndView mav = new ModelAndView("error");
+        mav.addObject("message", "An error occurred during registration.");
+        return mav;
     }
 }
