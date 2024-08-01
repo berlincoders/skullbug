@@ -8,7 +8,8 @@ target/
 .DS_Store
 
 # Ignore build files
-*.class
+*.classls
+ls
 *.jar
 *.war
 *.ear
