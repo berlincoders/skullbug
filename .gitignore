@@ -13,3 +13,5 @@ ls
 *.jar
 *.war
 *.ear
+
+frontend/.env.local
