@@ -13,12 +13,12 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                // Allow all requests to the /bugs and / endpoint without authentication
+                // Allow all requests to static resources, /bugs, and / endpoints without authentication
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/bugs/**", "/").permitAll()
-                        .anyRequest().authenticated()
+                        .requestMatchers("/styles/**", "/images/**", "/bugs/**", "/").permitAll() // Permit access to static resources
+                        .anyRequest().authenticated() // Authenticate all other requests
                 )
-                // Disable CSRF for simplicity
+                // Disable CSRF for simplicity (for development purposes only)
                 .csrf(csrf -> csrf.disable());
 
         return http.build();
