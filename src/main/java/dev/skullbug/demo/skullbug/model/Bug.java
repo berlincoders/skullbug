@@ -1,4 +1,4 @@
-package dev.skullbug.demo.skullbug;
+package dev.skullbug.demo.skullbug.model;
 
 import jakarta.validation.constraints.NotEmpty;
 
