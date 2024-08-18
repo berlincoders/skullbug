@@ -3,30 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skullbug Application</title>
+    <title>Home - Skullbug Application</title>
     <link rel="stylesheet" href="/styles/styles.css">
 </head>
-<body>
+<body class="bg-gray-100 text-gray-800">
 <header>
-    <nav>
-        <div class="container">
+    <nav class="bg-gray-800 text-white py-4">
+        <div class="container mx-auto flex justify-between items-center">
             <div class="logo">
-                <!-- Replace with your actual logo -->
-                <a href="/" th:text="'<img src=\'/images/logo.png\' alt=\'Logo\' />'"></a>
+                <a href="/" th:utext="|<img src='/images/logo.png' alt='Logo' />|">
+                    <img src="/images/logo.png" alt="Logo" class="h-8">
+                </a>
             </div>
-            <ul class="nav-links">
-                <li><a href="/" th:text="'Home'"></a></li>
-                <li><a href="/bugs" th:text="'Bugs'"></a></li>
-                <li><a href="/about" th:text="'About'"></a></li>
-                <li><a href="/contact" th:text="'Contact'"></a></li>
+            <ul class="flex space-x-4">
+                <li><a href="/" th:text="'Home'" class="hover:underline"></a></li>
+                <li><a href="/bugs" th:text="'Bugs'" class="hover:underline"></a></li>
+                <li><a href="/about" th:text="'About'" class="hover:underline"></a></li>
+                <li><a href="/contact" th:text="'Contact'" class="hover:underline"></a></li>
+                <li><a href="/login" th:text="'Login'" class="hover:underline"></a></li>
             </ul>
         </div>
     </nav>
 </header>
-<main>
-    <!-- Main content goes here -->
+<main class="container mx-auto py-8">
+    <h1 class="text-3xl font-bold mb-4">Welcome to Skullbug</h1>
+    <p class="text-lg">This is the home page.</p>
 </main>
-<footer>
+<footer class="bg-gray-800 text-white text-center py-4">
     <!-- Footer content goes here -->
 </footer>
 </body>

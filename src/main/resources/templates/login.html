@@ -1,17 +1,49 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="/styles/styles.css">
 </head>
-<body>
-<form th:action="@{/login}" method="post">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" />
-    <br />
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" />
-    <br />
-    <button type="submit">Login</button>
-</form>
+<body class="bg-gray-100 text-gray-800">
+<header>
+    <nav class="bg-gray-800 text-white py-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="logo">
+                <a href="/" th:utext="|<img src='/images/logo.png' alt='Logo' />|">
+                    <img src="/images/logo.png" alt="Logo" class="h-8">
+                </a>
+            </div>
+            <ul class="flex space-x-4">
+                <li><a href="/" th:text="'Home'" class="hover:underline"></a></li>
+                <li><a href="/bugs" th:text="'Bugs'" class="hover:underline"></a></li>
+                <li><a href="/about" th:text="'About'" class="hover:underline"></a></li>
+                <li><a href="/contact" th:text="'Contact'" class="hover:underline"></a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<main class="container mx-auto py-8">
+    <div class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
+        <h1 class="text-2xl font-bold mb-6">Login</h1>
+        <form th:action="@{/login}" method="post">
+            <div class="mb-4">
+                <label for="username" class="block text-gray-700">Username</label>
+                <input type="text" id="username" name="username" class="w-full p-2 border rounded">
+            </div>
+            <div class="mb-4">
+                <label for="password" class="block text-gray-700">Password</label>
+                <input type="password" id="password" name="password" class="w-full p-2 border rounded">
+            </div>
+            <div class="mb-4">
+                <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded">Login</button>
+            </div>
+        </form>
+    </div>
+</main>
+<footer class="bg-gray-800 text-white text-center py-4">
+    <!-- Footer content goes here -->
+</footer>
 </body>
 </html>
