@@ -1,0 +1,12 @@
+{
+  "name": "skullbug",
+  "version": "1.0.0",
+  "description": "![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.3.2-blue) ![Java](https://img.shields.io/badge/Java-17-blue) ![Maven](https://img.shields.io/badge/Maven-blue)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
