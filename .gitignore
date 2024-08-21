@@ -12,3 +12,9 @@ target/
 *.jar
 *.war
 *.ear
+
+# Ignore node_modules directory
+node_modules/
+
+# Ignore Tailwind CSS output (if needed)
+src/main/resources/static/styles/styles.output.css
