@@ -1,6 +1,9 @@
 # Ignore Maven build directory
 target/
 
+# Ignore environment variable files
+.env
+
 # Ignore other potential files/directories
 .idea/
 *.iml
