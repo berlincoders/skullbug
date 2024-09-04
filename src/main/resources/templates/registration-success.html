@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Successful</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+
+    <!-- Script to redirect after 5 seconds -->
+    <script>
+        setTimeout(function(){
+            window.location.href = '/login';
+        }, 5000); // 5 seconds delay
+    </script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+<main class="container mx-auto py-8">
+    <div class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
+        <h1 class="text-2xl font-bold mb-6">Registration Successful!</h1>
+        <p class="mb-4">Your account has been created successfully. You will be redirected to the login page shortly.</p>
+        <p>If you are not redirected, <a href="/login" class="text-blue-500">click here</a>.</p>
+    </div>
+</main>
+</body>
+</html>

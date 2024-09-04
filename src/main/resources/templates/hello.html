@@ -1,13 +1,53 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Hello World!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/styles/styles.css"> <!-- Assuming Tailwind CSS is included here -->
 </head>
-<body>
-<h1 th:inline="text">Hello <span th:remove="tag" sec:authentication="name">thymeleaf</span>!</h1>
-<form th:action="@{/logout}" method="post">
-    <input type="submit" value="Sign Out"/>
-</form>
+<body class="bg-gray-100 text-gray-800">
+<header class="bg-blue-500 text-white p-4">
+    <div class="container mx-auto flex justify-between items-center">
+        <h1 class="text-xl font-bold">Dashboard</h1>
+        <nav>
+            <a href="/profile" class="mr-4 hover:text-gray-200">Profile</a>
+            <a href="/settings" class="mr-4 hover:text-gray-200">Settings</a>
+            <a href="/logout" class="hover:text-gray-200">Logout</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container mx-auto py-8">
+    <div class="bg-white p-6 rounded-lg shadow-md">
+        <h1 class="text-2xl font-bold mb-4">Hello, <span th:text="${#authentication.name}">User</span>!</h1>
+        <p class="mb-6">Welcome to your dashboard.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Overview Card -->
+            <div class="bg-blue-100 p-4 rounded-lg shadow-md">
+                <h2 class="text-lg font-semibold mb-2">Overview</h2>
+                <p>Your last login was on <span th:text="${lastLoginDate}">Date</span>.</p>
+            </div>
+
+            <!-- Statistics Card -->
+            <div class="bg-green-100 p-4 rounded-lg shadow-md">
+                <h2 class="text-lg font-semibold mb-2">Statistics</h2>
+                <p>Number of logins: <span th:text="${loginCount}">0</span></p>
+                <p>Account created on: <span th:text="${accountCreationDate}">Date</span></p>
+            </div>
+
+            <!-- Quick Links Card -->
+            <div class="bg-yellow-100 p-4 rounded-lg shadow-md">
+                <h2 class="text-lg font-semibold mb-2">Quick Links</h2>
+                <ul>
+                    <li><a href="/profile" class="text-blue-500 hover:underline">Edit Profile</a></li>
+                    <li><a href="/settings" class="text-blue-500 hover:underline">Settings</a></li>
+                    <li><a href="/help" class="text-blue-500 hover:underline">Help</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</main>
 </body>
 </html>

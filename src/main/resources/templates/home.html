@@ -1,11 +1,36 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Spring Security Example</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/styles/dashboard.css">
 </head>
 <body>
-<h1>Welcome! Unsecured</h1>
+<header>
+    <h1>Welcome to Your Dashboard, <span th:text="${#authentication.name}"></span></h1>
+    <nav>
+        <ul>
+            <li><a th:href="@{/home}">Home</a></li>
+            <li><a th:href="@{/profile}">Profile</a></li>
+            <li><a th:href="@{/settings}">Settings</a></li>
+            <li><a th:href="@{/logout}">Logout</a></li>
+        </ul>
+    </nav>
+</header>
 
-<p>Click <a th:href="@{/hello}">here</a> to see a greeting.</p>
+<main>
+    <section>
+        <h2>Overview</h2>
+        <p>Welcome back, <span th:text="${#authentication.name}"></span>!</p>
+        <p>Your last login was on <span th:text="${lastLoginDate}">some date</span>.</p>
+    </section>
+
+    <section>
+        <h2>Statistics</h2>
+        <p>Number of logins: <span th:text="${loginCount}"></span></p>
+        <p>Account created on: <span th:text="${accountCreationDate}"></span></p>
+    </section>
+</main>
 </body>
 </html>
