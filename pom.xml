@@ -93,6 +93,17 @@
 			<scope>test</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>jakarta.persistence</groupId>
+			<artifactId>jakarta.persistence-api</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>eclipse-persistence-api</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

@@ -11,7 +11,8 @@
     <div class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
         <h1 class="text-2xl font-bold mb-6">Register</h1>
 
-        <form th:action="@{/register}" method="post" th:object="${user}">
+        <!-- Update th:object to use the new model name 'account' -->
+        <form th:action="@{/register}" method="post" th:object="${account}">
             <div class="mb-4">
                 <label for="username" class="block text-gray-700">Username</label>
                 <input type="text" id="username" name="username" th:field="*{username}" class="w-full p-2 border rounded">
@@ -24,7 +25,6 @@
                 <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded">Register</button>
             </div>
         </form>
-
 
     </div>
 </main>
