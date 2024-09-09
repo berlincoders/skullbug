@@ -1,36 +1,92 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="/styles/dashboard.css">
+    <title>Skullbug - Bug Tracking Made Easy</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <style>
+        /* Tailwind custom classes for hover border effect */
+        .menu-item {
+            position: relative;
+        }
+
+        .menu-item::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .menu-item:hover::after {
+            background-color: #3B82F6; /* Tailwind's blue-500 color */
+        }
+    </style>
 </head>
-<body>
-<header>
-    <h1>Welcome to Your Dashboard, <span th:text="${#authentication.name}"></span></h1>
-    <nav>
-        <ul>
-            <li><a th:href="@{/home}">Home</a></li>
-            <li><a th:href="@{/profile}">Profile</a></li>
-            <li><a th:href="@{/settings}">Settings</a></li>
-            <li><a th:href="@{/logout}">Logout</a></li>
-        </ul>
-    </nav>
-</header>
+<body class="bg-gray-100">
 
-<main>
-    <section>
-        <h2>Overview</h2>
-        <p>Welcome back, <span th:text="${#authentication.name}"></span>!</p>
-        <p>Your last login was on <span th:text="${lastLoginDate}">some date</span>.</p>
-    </section>
+<!-- Navbar -->
+<nav class="bg-white shadow-md">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <a href="#" class="text-2xl font-bold text-gray-800">Skullbug</a>
+        <div>
+            <a href="#" class="menu-item text-gray-800 hover:text-blue-500 mx-2">Features</a>
+            <a href="#" class="menu-item text-gray-800 hover:text-blue-500 mx-2">Pricing</a>
+            <a href="#" class="menu-item text-gray-800 hover:text-blue-500 mx-2">Docs</a>
+            <a href="/login" class="menu-item text-gray-800 hover:text-blue-500 mx-2">Sign In</a> <!-- Redirect to /login -->
+            <a href="#" class="bg-blue-500 text-white px-4 py-2 rounded ml-2">Sign Up</a>
+        </div>
+    </div>
+</nav>
 
-    <section>
-        <h2>Statistics</h2>
-        <p>Number of logins: <span th:text="${loginCount}"></span></p>
-        <p>Account created on: <span th:text="${accountCreationDate}"></span></p>
-    </section>
-</main>
+<!-- Hero Section -->
+<section class="bg-blue-600 text-white py-20">
+    <div class="container mx-auto text-center">
+        <h1 class="text-4xl font-bold mb-4">Track Bugs, Fix Issues, and Ship Faster</h1>
+        <p class="text-lg mb-8">Skullbug helps you track bugs and manage software projects with ease. Improve software quality with real-time issue tracking and performance monitoring.</p>
+        <a href="#" class="bg-white text-blue-600 font-semibold px-6 py-3 rounded">Get Started Free</a>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-16">
+    <div class="container mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-8">Why Skullbug?</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-2xl font-bold mb-4">Real-Time Issue Tracking</h3>
+                <p>Instantly identify and resolve issues with our intuitive, real-time bug tracking platform.</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-2xl font-bold mb-4">Customizable Workflows</h3>
+                <p>Tailor your bug tracking workflow to match your team's unique process and speed up bug fixes.</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-2xl font-bold mb-4">Seamless Integration</h3>
+                <p>Integrate Skullbug with your existing tools like Slack, GitHub, and more for enhanced productivity.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call-to-Action Section -->
+<section class="bg-gray-800 text-white py-20">
+    <div class="container mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-6">Ready to Improve Your Development Process?</h2>
+        <a href="#" class="bg-blue-500 text-white px-6 py-3 rounded">Try Skullbug for Free</a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-gray-400 py-8">
+    <div class="container mx-auto text-center">
+        <p>&copy; 2024 Skullbug. All Rights Reserved.</p>
+    </div>
+</footer>
+
 </body>
 </html>
